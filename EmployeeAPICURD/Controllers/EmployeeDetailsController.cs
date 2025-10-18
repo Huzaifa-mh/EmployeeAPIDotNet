@@ -45,9 +45,11 @@ namespace EmployeeAPICURD.Controllers
         [HttpPut("{code}")]
         public async Task<ActionResult<Employee>> UpdateEmployeeById (int code, Employee updatedEmployee)
         {
-
+            //to check if the user give the data
             if (updatedEmployee is null)
                 return BadRequest("Employee data is required");
+
+            //to match the code with the url and the body
             if (code != updatedEmployee.EmployeeCode)
                 return BadRequest("Employee Code mismatch between the url and body");
 
